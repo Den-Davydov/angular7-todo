@@ -12,7 +12,7 @@ import { Observable } from 'rxjs';
 export class BorderComponent implements OnInit {
 
   drop(event: CdkDragDrop<Border>) {
-    console.log(event);
+    
 
 
     if (event.previousContainer === event.container) {
@@ -43,7 +43,7 @@ export class BorderComponent implements OnInit {
     for (var i = 0; i < this.borders.length; i++) {
       this.conectedEvent.push("cdk-drop-list-" + i);
     }
-    console.log(this.conectedEvent);
+    
   }
 
   borders: Border[];
