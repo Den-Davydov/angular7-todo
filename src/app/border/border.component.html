@@ -1,0 +1,33 @@
+<div class="text-center">
+  <input type="text" #border placeholder="Add Border" name="border" ngModel>
+  <i (click)="onAddBorder(border.value)" class="btn btn-success">Add Border</i>
+</div>
+
+<div style="display: inline-flex; flex-wrap: wrap">
+  <div class="example-container"  *ngFor="let border of borders" cdkDropList [cdkDropListData]="border"
+    (cdkDropListDropped)="drop($event)" [cdkDropListConnectedTo]="conectedEvent" #elem >
+  
+      
+        <h2 >{{border.title}}</h2>
+        <div class="example-list">
+        <div class="input-group-append">
+          <input type="text" #todo placeholder="Add Todo" name="todo" ngModel>
+          <button (click)="addTodo(todo.value,border); todo.value=''" class="btn btn-outline-secondary" type="button">add</button>
+          <button (click)="deleteBorder(border)" class="btn btn-outline-secondary" type="button">Delete</button>
+        </div>
+     
+
+   
+
+
+    <div  *ngIf="border">
+      <app-todo-list class="example-box" [cdkDragData]="todo" cdkDrag *ngFor="let todo of border.items" [todo]="todo" (deleteTodo)="deleteTodo($event,border)"
+        (editTodo)="editTodo($event,border)">
+      </app-todo-list>
+    </div>
+
+  </div>
+ </div>
+
+
+</div>

@@ -1,0 +1,5 @@
+<div class="data" *ngIf="todo">
+  {{todo}}
+  <i (click)="onDelete()" class="btn btn-primary">delete</i>
+  <i (click)="onEdit()" class="btn btn-info">edit</i>
+</div>
